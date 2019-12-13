@@ -1,0 +1,21 @@
+body {
+    background-color: gainsboro;
+  }
+h1 {
+    font: 150px;
+    text-align: center;
+}
+#boxshadow {
+    position: center;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
+}
+h2 {
+    text-align: left;
+}
+#card {
+    align-self: auto;
+}
