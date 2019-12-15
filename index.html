@@ -15,22 +15,33 @@
             <h1>Password Generator</h1>
         </header>
         <div id="boxshadow">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Generate a Password</h2>
-                </div>
-                <div class="card-body">
-                    <textarea readonly id="password" placeholder="Your Secure Password"
-                        aria-label="Generated Password"></textarea>
-                </div>
-                <div class="card-footer">
-                    <button id="generate" class="btn">Generate Password</button>
-                    <button id="generate" class="btn">Copy To Clipboard</button>
+            <div class="content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Generate a Password</h2>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <textarea readonly id="password" placeholder="Your Secure Password"
+                            aria-label="Generated Password"></textarea>
+                    </div>
+                    <p id="pw"></p>
+                    <hr>
+                    <div class="card-footer">
+                        <button id="generate1" class="btn">Generate Password</button>
+                        <button id="generate2" class="btn">Copy To Clipboard</button>
+                    </div>
+
                 </div>
             </div>
-        </div>
-        <script src="script.js">
-        </script>
+            <script src="main.js"></script>
+            <!-- 
+            <form name="pgenerate">
+                <input type="text" size=18 name="output">
+                <input type="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
+                <b>Password Length:</b> <input type="text" name="thelength" size=3 value="7">
+            </form> -->
+
 </body>
 
 </html>
