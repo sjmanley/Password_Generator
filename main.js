@@ -1,110 +1,64 @@
+//symbols,numbers,upperCase,lowerCase//
+var numbers = ['0','1','2','3','4','5','6','7','8','9']
+var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+var symbols = ['!','$','%','^','&','*','(','?',':',']','[',';']
 
 
-// var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-//         var string_length = 8;
-//         var randomstring = '';
-//         for (var i=0; i<string_length; i++) {
-//             var rnum = Math.floor(Math.random() * chars.length);
-//             randomstring += chars.substring(rnum,rnum+1);
-//         }
+function passwordRequirements (){
+    var passwordLength = parseInt(prompt("How long do you want your password?"));
+    console.log(passwordLength);
+    if (isNaN(passwordLength) === true) {
+        alert("Please ensure you use a valid length");
+        return;
+    }
+    if (passwordLength <8){
+        alert("Please ensure you have at least 8 characters");
+        return;
+    }
+    if (passwordLength >128){
+        alert("Please ensure your password is less than 128 characters");
+        return;
+    }
+    var containsSymbols = confirm("Click OK button to confirm special characters");
+    var containUppercase = confirm("Click OK button to confirm Upper Case letters");
+    var containLowercase = confirm("Click OK button to confirm Lower Case letters");
+    var containNumbers = confirm("Click OK button to confirm Numbers");
 
-//         function makeid(length) {
-//             var result           = '';
-//             var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//             var charactersLength = characters.length;
-//             for ( var i = 0; i < length; i++ ) {
-//                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//             }
-//             return result;
-//          }
-         
-//          console.log(makeid(5));
-
-// var random = Math.random();
-
-
-// const resultEl = document.getElementById('result');
-// const lengthEl = document.getElementById('length');
-// const uppercaseEl = document.getElementById('uppercase');
-// const lowercaseEl = document.getElementById('lowercase');
-// const numbersEl = document.getElementById('numbers');
-// const symbolsEl = document.getElementById('symbols');
-// const generateEl = document.getElementById('generate');
-// const clipboardEl = document.getElementById('clipboard');
-
-// const randomFunc = {
-//     lower: getRandomLower,
-//     upper: getRandomUpper,
-//     number: getRandomNumber,
-//     symbol: getRandomSymbol
-// };
+    var password = generatePassword(containsSymbols, containUppercase, containLowercase, containNumbers)
+    
+    function populateform(enterlength){
+        document.pgenerate.output.value=generatepass(enterlength)
+        }
+    
+    // TO DO: do something with password//
+}
+function generatePassword (passwordLength, containsSymbols, containUpperCase, containLowerCase, containNumbers){
+    console.log(arguments);
+    return passwordRequirements;
+}
 
 
+function toCharArray(str){
+    charArray =[];
+    for(var i=0;i<str.length;i++){
+         charArray.push(str[i]);
+    } return charArray;
+}
 
-// function getRandomLower() {
-//     return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
+function copyToClipboard() {
+    document.getElementById("password").select();
+  
+    document.execCommand("Copy");
+  
+    alert("Password copied to clipboard");
+  }
 
-// function getRandomUpper() {
-//     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-// }
 
-// function getRandomNumber() {
-//     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
 
-// function getRandomSymbol() {
-//     const symbols = '!@#$%^&*(+_)(><?{}[]';
-//     return symbols[Math.floor(Math.random() * symbols.length)];
-// }
 
-// var keylist="adbnginerguobdmpmpm1234567890!@#$^%(&}{"
-// var temp=''
 
-// function generatepass(plength) {
-//     temp=''
-//     for (i-0; i<plength;i++)
-//         temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
-//         return temp
-// }
-// function populateform(enterlength){
-//     document.pgenerate.output.value = generatepass(enterlenght)
-// }
-
-                //Random password generator- by javascriptkit.com
-                //Visit JavaScript Kit (http://javascriptkit.com) for script
-                //Credit must stay intact for use
-                
-                // var keylist="abcdefghijklmnopqrstuvwxyz123456789"
-                // var temp=''
-                
-                // function generatepass(plength){
-                // temp=''
-                // for (i=0;i<plength;i++)
-                // temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
-                // return temp
-                // }
-                
-                // function populateform(enterlength){
-                // document.pgenerate.output.value=generatepass(enterlength)
-                // }
-
-                // function myFunction() {
-                //     document.getElementById("demo").innerHTML = Math.random();
-                //   }
-
-                var arr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-                function generate () {
-                    var password = "";
-                    for (i = 0; i < 10; i++) {
-                        var randomLetter = arr[Math.floor(arr.length * Math.random())];
-                        password += randomLetter;
-                    }
-                    document.getElementById("pw").textContent = password;
-                }
-                
-                document.querySelector('generate1').addEventListener('click', function (event) {
-                    event.preventDefault();
-                    generate();
-                });
+  for(var i=0; i <= generatePassword; i++) {
+    password = password + numbers,upperCase,lowerCase,symbols.charAt(Math.floor(Math.random() * Math.floor(password.length - 1)));
+    }
+    document.getElementById("password").numbers,upperCase,lowerCase,symbols.values = password;
