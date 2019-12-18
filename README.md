@@ -5,4 +5,6 @@ Working the Pasword Generator with Javascript. Completed the HTML and CSS...stil
 I have my prompts set and the password requirements. Just to generate the password still.
   😀
   <br>
- ![Password Generator ScreenShot](https://github.com/sjmanley/Password_Generator/blob/master/Screen%20Shot%202019-12-18%20at%205.45.50%20AM.png)
+ <h2>![Password Generator ScreenShot]</h2>
+ <br>
+ (https://github.com/sjmanley/Password_Generator/blob/master/Screen%20Shot%202019-12-18%20at%205.45.50%20AM.png)
