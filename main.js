@@ -1,22 +1,22 @@
 //symbols,numbers,upperCase,lowerCase//
-var numbers = ['0','1','2','3','4','5','6','7','8','9']
-var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-var symbols = ['!','$','%','^','&','*','(','?',':',']','[',';']
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+var symbols = ['!', '$', '%', '^', '&', '*', '(', '?', ':', ']', '[', ';']
 
 
-function passwordRequirements (){
+function passwordRequirements() {
     var passwordLength = parseInt(prompt("How long do you want your password?"));
     console.log(passwordLength);
     if (isNaN(passwordLength) === true) {
         alert("Please ensure you use a valid length");
         return;
     }
-    if (passwordLength <8){
+    if (passwordLength < 8) {
         alert("Please ensure you have at least 8 characters");
         return;
     }
-    if (passwordLength >128){
+    if (passwordLength > 128) {
         alert("Please ensure your password is less than 128 characters");
         return;
     }
@@ -25,40 +25,79 @@ function passwordRequirements (){
     var containLowercase = confirm("Click OK button to confirm Lower Case letters");
     var containNumbers = confirm("Click OK button to confirm Numbers");
 
-    var password = generatePassword(containsSymbols, containUppercase, containLowercase, containNumbers)
-    
-    function populateform(enterlength){
-        document.pgenerate.output.value=generatepass(enterlength)
-        }
-    
-    // TO DO: do something with password//
-}
-function generatePassword (passwordLength, containsSymbols, containUpperCase, containLowerCase, containNumbers){
-    console.log(arguments);
-    return passwordRequirements;
-}
+    if (containsSymbols === false && containUppercase === false && containLowercase === false && containNumbers === false )    {
 
-
-function toCharArray(str){
-    charArray =[];
-    for(var i=0;i<str.length;i++){
-         charArray.push(str[i]);
-    } return charArray;
-}
-
-function copyToClipboard() {
-    document.getElementById("password").select();
-  
-    document.execCommand("Copy");
-  
-    alert("Password copied to clipboard");
-  }
-
-
-
-
-
-  for(var i=0; i <= generatePassword; i++) {
-    password = password + numbers,upperCase,lowerCase,symbols.charAt(Math.floor(Math.random() * Math.floor(password.length - 1)));
+        alert ("Please go back and pick one number or symbol");
+        return;
     }
-    document.getElementById("password").numbers,upperCase,lowerCase,symbols.values = password;
+
+    var passwordTypes = {
+        passwordLength: passwordLength, 
+        containsSymbols: containsSymbols,
+        containLowerCase: containLowercase,
+        containNumbers: containNumbers,
+        containUppercase: containUppercase
+    };
+
+    return passwordTypes;
+
+}   
+function randomize(arr) {
+    var index = Math.floor(Math.random() * arr.length);
+    var element = arr[index];
+    return element;
+}
+function passwordGenerator() {
+    var options = passwordRequirements();
+    var passwordResult = [];
+    var potentialCharacters = [];
+    var guaranteedCharacters = [];
+
+if (options.containsSymbols){
+    potentialCharacters = potentialCharacters.concat(symbols);
+    guaranteedCharacters.push(randomize(symbols));
+}
+if (options.containUppercase){
+    potentialCharacters = potentialCharacters.concat(upperCase);
+    guaranteedCharacters.push(randomize(upperCase));
+}
+if (options.containLowercase){
+    potentialCharacters = potentialCharacters.concat(lowerCase);
+    guaranteedCharacters.push(randomize(lowerCase));
+}
+if (options.containNumbers){
+    potentialCharacters = potentialCharacters.concat(numbers);
+    guaranteedCharacters.push(randomize(numbers));
+}
+    for (var i = 0; i < passwordLength.length; i++){
+        var potentialCharacter = randomize(potentialCharacters);
+        passwordResult.push(potentialCharacter);
+    }
+    for (var i = 0; i < guaranteedCharacters.length; i++){
+        passwordResult[i] = guaranteedCharacters[i];
+    } console.log (guaranteedCharacters, passwordResult, potentialCharacter)
+    return passwordResult.join("");
+}   
+var copy = document.getElementById('generate1');
+var clipboard = document.getElementById('generate2');
+
+function printPassword (){
+    var pw = passwordGenerator();
+    var pwPrint = document.getElementById('password');
+    pwPrint.value = pw;
+}
+
+// function copyToClipboard() {
+//     document.getElementById("password").select();
+
+//     document.execCommand("Copy");
+
+//     let password = []
+//     while (password.lenght < length) {
+//         const rnd = Math.floor(Math.random() * avail.length);
+//         password.push(avail[rnd]);
+//     }
+
+//     alert("Password copied to clipboard");
+// }
+
