@@ -8,6 +8,7 @@ var symbols = ['!', '$', '%', '^', '&', '*', '(', '?', ':', ']', '[', ';']
 function passwordRequirements() {
     var passwordLength = parseInt(prompt("How long do you want your password?"));
     console.log(passwordLength);
+    console.log("this is from line 10")
     if (isNaN(passwordLength) === true) {
         alert("Please ensure you use a valid length");
         return;
@@ -25,11 +26,11 @@ function passwordRequirements() {
     var containLowercase = confirm("Click OK button to confirm Lower Case letters");
     var containNumbers = confirm("Click OK button to confirm Numbers");
 
-    if (containsSymbols === false && containUppercase === false && containLowercase === false && containNumbers === false )    {
-
-        alert ("Please go back and pick one number or symbol");
+    if (containsSymbols === false && containUppercase === false && containLowercase === false && containNumbers === false )    
+    { alert ("Please go back and pick one number or symbol");
         return;
     }
+
 
     var passwordTypes = {
         passwordLength: passwordLength, 
@@ -39,6 +40,7 @@ function passwordRequirements() {
         containUppercase: containUppercase
     };
 
+
     return passwordTypes;
 
 }   
@@ -47,6 +49,8 @@ function randomize(arr) {
     var element = arr[index];
     return element;
 }
+
+
 function passwordGenerator() {
     var options = passwordRequirements();
     var passwordResult = [];
@@ -75,9 +79,13 @@ if (options.containNumbers){
     }
     for (var i = 0; i < guaranteedCharacters.length; i++){
         passwordResult[i] = guaranteedCharacters[i];
-    } console.log (guaranteedCharacters, passwordResult, potentialCharacter)
+    } 
+   
     return passwordResult.join("");
-}   
+}  
+
+var myPassword = passwordGenerator();
+console.log(myPassword)
 var copy = document.getElementById('generate1');
 var clipboard = document.getElementById('generate2');
 
@@ -87,16 +95,19 @@ function printPassword (){
     pwPrint.value = pw;
 }
 
+console.log (printPassword);
+
 // function copyToClipboard() {
 //     document.getElementById("password").select();
 
 //     document.execCommand("Copy");
 
-//     let password = []
-//     while (password.lenght < length) {
-//         const rnd = Math.floor(Math.random() * avail.length);
-//         password.push(avail[rnd]);
-//     }
+//     // let password = []
+//     // while (password.length < length) {
+//     //     const rnd = Math.floor(Math.random() * avail.length);
+//     //     password.push(avail[rnd]);
+//     // }
+// console.log (copyToClipboard);
 
 //     alert("Password copied to clipboard");
 // }
