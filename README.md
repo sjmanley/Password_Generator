@@ -6,7 +6,7 @@ https://sjmanley.github.io/Password_Generator/
 <br>
 Working the Pasword Generator with Javascript. Completed the HTML and CSS...got the JavaScript working!
 <br>
-Click the red Generate Password button to start the prompts. It will prompt you through the symbols that you would like in your password. If you choose something other than the correct lenght you will be promtped again to reselect the correct lenght or character.
+Click the red Generate Password button to start the prompts. It will prompt you through the symbols that you would like in your password. If you choose something other than the correct length you will be alerted again to reselect the correct length or character.
 <br>
 Once you have gone through all the prompts your passwrod will be generated to the text box on the screen.
 <br>
